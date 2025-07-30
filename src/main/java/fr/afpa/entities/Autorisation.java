@@ -1,5 +1,7 @@
 package fr.afpa.entities;
 
+import java.util.UUID;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import jakarta.persistence.*;
@@ -8,7 +10,7 @@ import jakarta.persistence.*;
 public class Autorisation extends PanacheEntity {
 
     @Column(nullable = false, length = 36)
-    public String UUID;
+    public UUID uuid;
 
     @Column(name = "a_vote", nullable = false)
     public boolean aVote;
