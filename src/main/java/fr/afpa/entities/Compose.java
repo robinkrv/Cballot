@@ -2,7 +2,8 @@ package fr.afpa.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.fr.afpa.constants.TypeDelegue;
+import fr.afpa.constants.TypeDelegue;
+
 
 @Entity
 @IdClass(ComposeId.class)
