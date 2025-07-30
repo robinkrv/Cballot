@@ -12,7 +12,7 @@ public class ScrutinService {
     @Transactional
     public Scrutin create(ScrutinDTO dto) {
         Scrutin scrutin = new Scrutin();
-        scrutin.dateVote = dto.dateVote.atStartOfDay();
+        scrutin.dateVote = dto.dateVote;
         scrutin.tour = (short) dto.tour;
         scrutin.admin = Admin.findById(dto.adminId);
         scrutin.session = Session.findById(dto.sessionId);
