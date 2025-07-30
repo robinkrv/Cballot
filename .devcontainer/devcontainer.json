@@ -1,0 +1,19 @@
+{
+  "name": "Quarkus Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.vscode-quarkus",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven"
+      ]
+    }
+  },
+  "forwardPorts": [8080],
+  "remoteUser": "vscode",
+  "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/code-with-quarkus/target && ./mvnw install -DskipTests"
+}
