@@ -4,6 +4,9 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "runArgs": [
+    "--network=db_dev"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,7 +16,9 @@
       ]
     }
   },
-  "forwardPorts": [8080],
+  "forwardPorts": [
+    8080
+  ],
   "remoteUser": "vscode",
   "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/code-with-quarkus/target && ./mvnw install -DskipTests"
 }
