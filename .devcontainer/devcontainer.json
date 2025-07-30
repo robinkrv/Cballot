@@ -1,9 +1,8 @@
 {
   "name": "Quarkus Devcontainer",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,7 +12,9 @@
       ]
     }
   },
-  "forwardPorts": [8080],
+  "forwardPorts": [
+    8080
+  ],
   "remoteUser": "vscode",
   "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/code-with-quarkus/target && ./mvnw install -DskipTests"
 }
