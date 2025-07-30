@@ -3,6 +3,7 @@ package fr.afpa.entities;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import fr.afpa.constants.TypeDelegue;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 
 @Entity
@@ -12,7 +13,7 @@ import fr.afpa.constants.TypeDelegue;
         @UniqueConstraint(columnNames = {"stagiaire_id", "scrutin_id"})
     }
 )
-public class Compose implements Serializable {
+public class StagiaireBinome extends PanacheEntity implements Serializable {
 
     @Id
     @ManyToOne
