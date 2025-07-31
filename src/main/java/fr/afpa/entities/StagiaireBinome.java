@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import fr.afpa.constants.TypeDelegue;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 
 @Entity
@@ -13,7 +14,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
         @UniqueConstraint(columnNames = {"stagiaire_id", "scrutin_id"})
     }
 )
-public class StagiaireBinome extends PanacheEntity implements Serializable {
+public class StagiaireBinome extends PanacheEntityBase implements Serializable {
 
     @Id
     @ManyToOne
