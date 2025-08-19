@@ -61,8 +61,7 @@ public class AdminController {
                 admin.password,
                 utilisateur != null ? utilisateur.name_ : null,
                 utilisateur != null ? utilisateur.firstname_ : null,
-                utilisateur != null ? utilisateur.mail : null
-        );
+                utilisateur != null ? utilisateur.mail : null);
     }
 
     @DELETE

@@ -6,7 +6,8 @@ public class StagiaireDTO {
     public String firstname;
     public String mail;
 
-    public StagiaireDTO() {} 
+    public StagiaireDTO() {
+    }
 
     public StagiaireDTO(Long id, String name, String firstname, String mail) {
         this.id = id;
@@ -15,10 +16,20 @@ public class StagiaireDTO {
         this.mail = mail;
     }
 
-  public Long getId() { return id; }
-    public String getName() { return name; }
-    public String getFirstname() { return firstname; }
-    public String getMail() { return mail; }
+    public Long getId() {
+        return id;
+    }
 
-    
+    public String getName() {
+        return name;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
 }
