@@ -1,0 +1,40 @@
+.page-connexion {
+  background-color: #fff9db; /* jaune pâle */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connexion-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connexion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 0.6rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}

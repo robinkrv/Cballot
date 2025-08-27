@@ -1,0 +1,29 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff9db; 
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.page-input-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-button-container {
+  text-align: right;
+}

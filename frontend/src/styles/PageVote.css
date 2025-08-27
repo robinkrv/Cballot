@@ -1,0 +1,38 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff9db; 
+  padding: 1rem;
+}
+
+.page-vote .bg-light {
+  background-color: #ffffff !important;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.page-center {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-field {
+  min-width: 260px;
+}
+
+.page-button-container {
+  text-align: right;
+}
