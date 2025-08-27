@@ -13,6 +13,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ children }) => {
         height: '70vh',
         width: '90%',   // largeur à ajuster selon ton besoin
         maxWidth: '800px', // optionnel pour pas que ça devienne trop large
+        overflow: 'auto',
       }}
     >
       {children}

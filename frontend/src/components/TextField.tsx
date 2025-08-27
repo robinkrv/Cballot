@@ -8,10 +8,16 @@ interface TextFieldProps {
 
 const TextField : React.FC<TextFieldProps> = ({ title, type , id}) => {
     return(
-        <div className="form-group">
-            <label htmlFor={title} className="mb-2 mt-3"> {title}</label>
-            <input type={type} className="form-control" id={id} />
-        </div>
+       <div className="mb-3 mt-3 text-start">
+      <label htmlFor={id} className="form-label d-block text-start">
+        {title}
+      </label>
+      <input
+        type={type}
+        className="form-control border-dark rounded-0"
+        id={id}
+      />
+    </div>
     )
 }
 export default TextField;

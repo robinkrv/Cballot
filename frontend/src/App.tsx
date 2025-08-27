@@ -1,17 +1,16 @@
-import { useState } from 'react'
-
 import './App.css'
-import NavBar from './components/NavBar.tsx'
-import CreateFormation from './pages/CreateFormation.tsx'
+import NavBar from './components/NavBar'
+import CreateFormation from './pages/CreateFormation'
+import Scrutin from './pages/Scrutin'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <NavBar />
       <CreateFormation />
-
+      {/* <Scrutin/> */}
     </>
   )
 }

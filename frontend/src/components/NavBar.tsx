@@ -2,7 +2,7 @@ import React from "react";
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
       <a className="navbar-brand" href="#">Accueil</a>
       <button
         className="navbar-toggler"
