@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 
 interface SearchBarProps {
   label: string;
@@ -20,6 +20,4 @@ const SearchBar: React.FC<SearchBarProps> = ({ label, placeholder }) => {
 
 export default SearchBar;
 
-//     );
-// }
 
