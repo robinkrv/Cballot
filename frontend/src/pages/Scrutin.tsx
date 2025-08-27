@@ -12,7 +12,6 @@ const Scrutin = () => {
             <h1>Planification du scrutin</h1>
             <TextField title={"Date et heure du vote"} type={"datetime-local"} id={"VoteDate"} />
             <GestionBinomes/>
-          
           <Button label="Valider"/>
         </ContentBlock>
     );

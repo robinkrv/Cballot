@@ -4,6 +4,8 @@ import PageCode from "./pages/PageCode";
 import PageVote from "./pages/PageVote";
 import PageConnexion from "./pages/PageConnexion";
 import PageSession from "./pages/PageSession";
+import Scrutin from "./pages/Scrutin";
+import CreateFormation from "./pages/CreateFormation";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +15,8 @@ const App: React.FC = () => {
         <Route path="/vote" element={<PageVote />} />
         <Route path="/connexion" element={<PageConnexion />} />
         <Route path="/session" element={<PageSession />} />
+        <Route path="/scrutin" element={<Scrutin/>}/>
+        <Route path="/creationSession" element={<CreateFormation/>}/>
       </Routes>
     </BrowserRouter>
   );
