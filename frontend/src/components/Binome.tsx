@@ -7,9 +7,7 @@ interface Binome {
 }
 
 const GestionBinomes: React.FC = () => {
-  const [binomes, setBinomes] = useState<Binome[]>([
-    { nom: "", personne1: "", personne2: "" },
-  ]);
+  const [binomes, setBinomes] = useState<Binome[]>([]);
 
   const ajouterBinome = () => {
     setBinomes([...binomes, { nom: "", personne1: "", personne2: "" }]);
@@ -19,11 +17,7 @@ const GestionBinomes: React.FC = () => {
     setBinomes(binomes.filter((_, i) => i !== index));
   };
 
-  const updateBinome = (
-    index: number,
-    field: keyof Binome,
-    value: string
-  ) => {
+  const updateBinome = (index: number, field: keyof Binome, value: string) => {
     const newBinomes = [...binomes];
     newBinomes[index][field] = value;
     setBinomes(newBinomes);
