@@ -23,7 +23,7 @@ export async function createBinome (binome: Omit<Binome, "id">): Promise<Binome>
     }
 }
 
-export async function fecthBinome(id: number): Promise<Binome> {
+export async function fetchBinome(id: number): Promise<Binome> {
     try {
         const response = await fetch(`${API_URL}/${id}`);
         if (!response.ok) throw new Error("Erreur HTTP");
@@ -34,7 +34,7 @@ export async function fecthBinome(id: number): Promise<Binome> {
     }
 }
 
-export async function fecthBinomes(): Promise<Binome[]> {
+export async function fetchBinomes(): Promise<Binome[]> {
      try {
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error("Erreur HTTP"); 
