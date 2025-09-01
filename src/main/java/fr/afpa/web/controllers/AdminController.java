@@ -35,17 +35,29 @@ public class AdminController {
     @POST
     @Transactional
     public Response create(Admin admin) {
-        if (admin.utilisateur == null || admin.utilisateur.id == null) {
+        if (admin.utilisateur == null) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Un utilisateur valide est requis pour l'admin.").build();
+                    .entity("Un utilisateur est requis pour l'admin.").build();
         }
 
-        Utilisateur utilisateur = Utilisateur.findById(admin.utilisateur.id);
-        if (utilisateur == null) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Utilisateur pas trouvé pour l'id : " + admin.utilisateur.id).build();
+        Utilisateur utilisateur;
+        if (admin.utilisateur.id != null) {
+            // Chercher un utilisateur existant
+            utilisateur = Utilisateur.findById(admin.utilisateur.id);
+            if (utilisateur == null) {
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("Utilisateur pas trouvé pour l'id : " + admin.utilisateur.id).build();
+            }
+        } else {
+            // Créer un nouvel utilisateur directement
+            utilisateur = new Utilisateur();
+            utilisateur.name_ = admin.utilisateur.name_;
+            utilisateur.firstname_ = admin.utilisateur.firstname_;
+            utilisateur.mail = admin.utilisateur.mail;
+            utilisateur.persist();
         }
 
+        // Associer utilisateur et admin
         admin.utilisateur = utilisateur;
         utilisateur.admin = admin;
 

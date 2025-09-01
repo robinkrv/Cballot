@@ -16,10 +16,17 @@ public class AutorisationService {
         if (stagiaire == null) return null;
 
         Autorisation autorisation = stagiaire.autorisation;
-        UUID uuid = UUID.randomUUID();
 
+        if (autorisation == null) {
+            autorisation = new Autorisation();
+            autorisation.stagiaire = stagiaire;
+            stagiaire.autorisation = autorisation;
+        }
+
+        UUID uuid = UUID.randomUUID();
         autorisation.uuid = uuid;
         autorisation.aVote = false;
+
         autorisation.persist();
 
         return uuid;
