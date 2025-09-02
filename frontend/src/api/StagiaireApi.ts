@@ -6,7 +6,6 @@ export interface StagiaireDTO {
 }
 
 export interface Utilisateur {
-    id: number;
     name?: string;
     firstname?: string;
     mail?: string;
