@@ -20,7 +20,7 @@ public class Autorisation extends PanacheEntity {
     public Scrutin scrutin;
 
     @OneToOne
-    @JoinColumn(name = "id_stagiaire", unique = true, nullable = false)
+    @JoinColumn(name = "id_stagiaire", unique = true)
     public Stagiaire stagiaire;
 
     @OneToOne(mappedBy = "autorisation", cascade = CascadeType.ALL)

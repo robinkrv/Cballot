@@ -1,11 +1,11 @@
 export interface LoginDTO {
-  email: string;
+  mail: string;
   password: string;
 }
 
 export interface Admin {
   id: number;
-  email: string;
+  mail: string;
   name: string;
 }
 
