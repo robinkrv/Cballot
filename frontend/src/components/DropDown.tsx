@@ -18,10 +18,14 @@ const DropDown: React.FC<DropDownProps> = ({ title , items}) => {
                 >
 
                 </button>
-                <ul className="dropdown-menu ">
-                    <li>
-                       
-                    </li>
+                <ul className="dropdown-menu">
+                    {items.map((item, index) => (
+                        <li key={index}>
+                            <a className="dropdown-item" href="#">
+                                {item}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

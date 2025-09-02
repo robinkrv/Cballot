@@ -15,7 +15,7 @@ const PageSession: React.FC = () => {
           {/* DropDown */}
           <div className="mb-4 text-start">
             <label className="form-label">Nom de la session</label>
-            <DropDown title="Sélectionner une session" />
+            <DropDown title="Sélectionner une session" items={[]} />
           </div>
 
           {/* SearchBar */}
