@@ -20,5 +20,5 @@
     8080
   ],
   "remoteUser": "vscode",
-  "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/code-with-quarkus/target && ./mvnw install -DskipTests"
+  "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/Cballot/target && ./mvnw install -DskipTests"
 }
