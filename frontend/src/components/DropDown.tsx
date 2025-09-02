@@ -2,9 +2,10 @@ import React from "react";
 
 interface DropDownProps {
     title: string;
+    items: string[];
 }
 
-const DropDown: React.FC<DropDownProps> = ({ title }) => {
+const DropDown: React.FC<DropDownProps> = ({ title , items}) => {
     return (
         <div className="w-100">
             <h5 className="text-start mb-2 m-3">{title}</h5>
@@ -19,9 +20,7 @@ const DropDown: React.FC<DropDownProps> = ({ title }) => {
                 </button>
                 <ul className="dropdown-menu ">
                     <li>
-                        <button className="dropdown-item " type="button">
-                            Action
-                        </button>
+                       
                     </li>
                 </ul>
             </div>

@@ -41,17 +41,33 @@ public class StagiaireController {
     @POST
     @Transactional
     public Response create(Stagiaire stagiaire) {
-        if (stagiaire.utilisateur == null || stagiaire.utilisateur.id == null) {
+        if (stagiaire.utilisateur == null) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Un utilisateur valide est requis pour l'admin.").build();
+                    .entity("Un utilisateur est requis pour créer un stagiaire.").build();
         }
 
-        Utilisateur utilisateur = Utilisateur.findById(stagiaire.utilisateur.id);
-        if (utilisateur == null) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Utilisateur pas trouvé pour id : " + stagiaire.utilisateur.id).build();
+        Utilisateur utilisateur;
+
+        // utilisateur existe déjà
+        if (stagiaire.utilisateur.id != null) {
+            utilisateur = Utilisateur.findById(stagiaire.utilisateur.id);
+            if (utilisateur == null) {
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("Utilisateur pas trouvé pour id : " + stagiaire.utilisateur.id).build();
+            }
+        }
+        // nouvel utilisateur
+        else {
+            utilisateur = stagiaire.utilisateur;
+
+            if (utilisateur.name_ == null || utilisateur.firstname_ == null || utilisateur.mail == null) {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("Tous les champs de l'utilisateur sont obligatoires").build();
+            }
+            utilisateur.persist();
         }
 
+        // Lien bidirectionnel
         stagiaire.utilisateur = utilisateur;
         utilisateur.stagiaire = stagiaire;
 
@@ -66,8 +82,7 @@ public class StagiaireController {
                 stagiaire.id,
                 utilisateur != null ? utilisateur.name_ : null,
                 utilisateur != null ? utilisateur.firstname_ : null,
-                utilisateur != null ? utilisateur.mail : null
-        );
+                utilisateur != null ? utilisateur.mail : null);
     }
 
     @DELETE

@@ -1,4 +1,5 @@
 export interface StagiaireDTO {
+    utilisateur: Utilisateur;
     id: number;
     name: string | null;
     firstname: string | null;
@@ -6,10 +7,11 @@ export interface StagiaireDTO {
 }
 
 export interface Utilisateur {
-    name?: string;
-    firstname?: string;
+    name_?: string;
+    firstname_?: string;
     mail?: string;
 }
+
 
 export interface Stagiaire {
     id?: number;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { StagiaireDTO, Stagiaire, getAllStagiaires, createStagiaire, deleteStagiaire } from "../api/StagiaireApi";
+import type { StagiaireDTO, Stagiaire } from "../api/StagiaireApi";
+import { getAllStagiaires, createStagiaire, deleteStagiaire } from "../api/StagiaireApi";
 
 const ListStagiaires: React.FC = () => {
   const [liste, setListe] = useState<StagiaireDTO[]>([]);
@@ -13,10 +14,10 @@ const ListStagiaires: React.FC = () => {
 
   const fetchStagiaires = async () => {
     try {
-      const data = await getAllStagiaires();
+      const data: StagiaireDTO[] = await getAllStagiaires();
       setListe(data);
     } catch (err: any) {
-      console.error(err);
+      console.error("Erreur récupération stagiaires:", err);
     }
   };
 
@@ -27,11 +28,16 @@ const ListStagiaires: React.FC = () => {
     }
 
     const newStagiaire: Stagiaire = {
-      utilisateur: { name, firstname, mail }
-    };
+  utilisateur: {
+    name_: name,
+    firstname_: firstname,
+    mail: mail
+  }
+};
+
 
     try {
-      const created = await createStagiaire(newStagiaire);
+      const created: StagiaireDTO = await createStagiaire(newStagiaire);
       setListe(prev => [...prev, created]);
       setName("");
       setFirstname("");
@@ -51,9 +57,9 @@ const ListStagiaires: React.FC = () => {
   };
 
   return (
-    <div className="container mt-3 mb-2 border border-dark ">
+    <div className="container mt-3 mb-2 border border-dark">
       {/* Formulaire */}
-      <div className="d-flex">
+      <div className="d-flex mb-2">
         <input
           type="text"
           className="form-control border-0 border-end border-dark rounded-0"
@@ -81,11 +87,15 @@ const ListStagiaires: React.FC = () => {
       {/* Liste */}
       <div className="card border-0 border-top border-dark rounded-0">
         <ul className="list-group list-group-flush">
-          {liste.map((s) => (
-            <li key={s.id} className="list-group-item d-flex justify-content-between align-items-center">
-              <span>{s.name} {s.firstname} - {s.mail}</span>
-              <button className="btn btn-sm fs-5 fw-bold" onClick={() => supprimer(s.id)}>X</button>
-            </li>
+          {liste
+            .filter(s => s.utilisateur) 
+            .map((s) => (
+              <li key={s.id} className="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                  {s.utilisateur!.name_} {s.utilisateur!.firstname_} - {s.utilisateur!.mail}
+                </span>
+                <button className="btn btn-sm fs-5 fw-bold" onClick={() => supprimer(s.id)}>X</button>
+              </li>
           ))}
         </ul>
       </div>
