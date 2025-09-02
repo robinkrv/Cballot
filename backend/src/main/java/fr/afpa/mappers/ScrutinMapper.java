@@ -8,31 +8,31 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "cdi", uses = {BinomeMapper.class})
+@Mapper(componentModel = "cdi", uses = { BinomeMapper.class })
 public interface ScrutinMapper {
-    
+
     // Conversion Entity vers DTO
     @Mapping(source = "admin.id", target = "adminId")
     @Mapping(source = "session.id", target = "sessionId")
-    @Mapping(source = "binomes", target = "binomes")  
+    @Mapping(source = "binomes", target = "binomes")
     ScrutinDTO toDTO(Scrutin scrutin);
-    
+
     // Conversion DTO vers Entity (partielle)
-    @Mapping(target = "admin", ignore = true)        
-    @Mapping(target = "session", ignore = true)      
-    @Mapping(target = "binomes", ignore = true)      
+    @Mapping(target = "admin", ignore = true)
+    @Mapping(target = "session", ignore = true)
+    @Mapping(target = "binomes", ignore = true)
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "votes", ignore = true)
+    @Mapping(target = "autorisations", ignore = true)
     Scrutin toEntity(ScrutinDTO scrutinDTO);
-    
+
     // Liste
     List<ScrutinDTO> toDTOList(List<Scrutin> scrutins);
-    
+
     // Mise à jour
     @Mapping(target = "admin", ignore = true)
     @Mapping(target = "session", ignore = true)
     @Mapping(target = "binomes", ignore = true)
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "votes", ignore = true)
+    @Mapping(target = "autorisations", ignore = true)
     void updateEntityFromDTO(ScrutinDTO dto, @MappingTarget Scrutin entity);
 }

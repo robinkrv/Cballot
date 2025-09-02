@@ -60,10 +60,9 @@ public class BinomeService {
      */
     public Long getPrincipalId(Long binomeId) {
         StagiaireBinome principal = StagiaireBinome.find(
-            "binome.id = ?1 AND type = ?2", 
-            binomeId, 
-            TypeDelegue.PRINCIPAL
-        ).firstResult();
+                "binome.id = ?1 AND type = ?2",
+                binomeId,
+                TypeDelegue.PRINCIPAL).firstResult();
 
         return principal != null ? principal.stagiaire.id : null;
     }
@@ -73,10 +72,9 @@ public class BinomeService {
      */
     public Long getSuppleantId(Long binomeId) {
         StagiaireBinome suppleant = StagiaireBinome.find(
-            "binome.id = ?1 AND type = ?2", 
-            binomeId, 
-            TypeDelegue.SUPPLEANT
-        ).firstResult();
+                "binome.id = ?1 AND type = ?2",
+                binomeId,
+                TypeDelegue.SUPPLEANT).firstResult();
 
         return suppleant != null ? suppleant.stagiaire.id : null;
     }

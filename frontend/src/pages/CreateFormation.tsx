@@ -10,6 +10,7 @@ import ListName from "../components/ListName";
 // FFF9DB
 
 const CreateFormation = () => {
+
     return (
         <ContentBlock>
             <h1>Creer une session</h1>

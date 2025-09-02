@@ -10,71 +10,9 @@ interface StagiaireDTO {
     mail: string | null;
 }
 
-const API_URL = "http://localhost:8080/stagiaires";
 
 const Scrutin = () => {
-    const [stagiaires, setStagiaires] = useState<StagiaireDTO[]>([]);
-    const [name, setName] = useState("");
-    const [firstname, setFirstname] = useState("");
-    const [mail, setMail] = useState("");
-    const [voteDate, setVoteDate] = useState("");
-
-    useEffect(() => {
-        fetchStagiaires();
-    }, []);
-
-    const fetchStagiaires = async () => {
-        try {
-            const res = await fetch(API_URL);
-            const data: StagiaireDTO[] = await res.json();
-            setStagiaires(data);
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
-    const handleAddStagiaire = async () => {
-        if (!name.trim() || !firstname.trim() || !mail.trim()) {
-            alert("Tous les champs sont obligatoires !");
-            return;
-        }
-
-        const newStagiaire = { name, firstname, mail };
-
-        try {
-            const res = await fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newStagiaire),
-            });
-
-            if (!res.ok) {
-                const text = await res.text();
-                throw new Error(`Erreur création: ${res.status} - ${text}`);
-            }
-
-            const created: StagiaireDTO = await res.json();
-            setStagiaires(prev => [...prev, created]);
-
-            setName("");
-            setFirstname("");
-            setMail("");
-
-        } catch (err: any) {
-            alert(`Impossible de créer le stagiaire: ${err.message}`);
-        }
-    };
-
-    const handleDelete = async (id: number) => {
-        try {
-            const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-            if (!res.ok) throw new Error(`Erreur suppression: ${res.status}`);
-            setStagiaires(prev => prev.filter(s => s.id !== id));
-        } catch (err: any) {
-            alert(`Impossible de supprimer le stagiaire: ${err.message}`);
-        }
-    };
-
+ 
     return (
         <ContentBlock>
             <h1>Planification du scrutin</h1>

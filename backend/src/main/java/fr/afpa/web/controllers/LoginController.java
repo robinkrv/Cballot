@@ -1,5 +1,6 @@
 package fr.afpa.web.controllers;
 
+import fr.afpa.dto.AdminDTO;
 import fr.afpa.dto.LoginDTO;
 import fr.afpa.entities.Admin;
 import fr.afpa.services.LoginService;
@@ -22,12 +23,12 @@ public class LoginController {
     @POST
     public Response login(LoginDTO dto) {
         try {
-            Admin admin = loginService.login(dto);
+            AdminDTO admin = loginService.login(dto);
             return Response.ok(admin).build();
         } catch (Exception e) {
             return Response.status(Response.Status.UNAUTHORIZED)
-                           .entity(e.getMessage())
-                           .build();
+                    .entity(e.getMessage())
+                    .build();
         }
     }
-}  
+}

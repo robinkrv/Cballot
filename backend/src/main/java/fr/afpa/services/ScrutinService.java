@@ -3,7 +3,9 @@ package fr.afpa.services;
 import fr.afpa.dto.BinomeDTO;
 import fr.afpa.dto.ScrutinDTO;
 import fr.afpa.entities.*;
+import fr.afpa.mappers.BinomeMapper;
 import fr.afpa.mappers.ScrutinMapper;
+import fr.afpa.repositories.BinomeRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -17,7 +19,13 @@ public class ScrutinService {
     ScrutinMapper scrutinMapper;
 
     @Inject
+    BinomeMapper binomeMapper;
+
+    @Inject
     BinomeService binomeService;
+
+    @Inject
+    BinomeRepository binomeRepository;
 
     /**
      * Crée un nouveau scrutin
@@ -33,7 +41,7 @@ public class ScrutinService {
         // Création des binômes associés
         if (dto.binomes != null && !dto.binomes.isEmpty()) {
             for (BinomeDTO binomeDto : dto.binomes) {
-                binomeDto.scrutinId = scrutin.id; 
+                binomeDto.scrutinId = scrutin.id;
                 binomeService.create(binomeDto);
             }
         }
@@ -78,6 +86,6 @@ public class ScrutinService {
             }
         }
 
-        return gagnant != null ? binomeService.getById(gagnant.id) : null;
+        return gagnant != null ? binomeMapper.toDTO(binomeRepository.findById(gagnant.id)) : null;
     }
 }

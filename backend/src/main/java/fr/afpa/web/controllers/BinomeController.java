@@ -5,6 +5,7 @@ import java.util.List;
 import fr.afpa.dto.BinomeDTO;
 import fr.afpa.entities.Binome;
 import fr.afpa.entities.StagiaireBinome;
+import fr.afpa.mappers.BinomeMapper;
 import fr.afpa.services.BinomeService;
 
 import jakarta.inject.Inject;
@@ -21,17 +22,21 @@ public class BinomeController {
     @Inject
     BinomeService binomeService;
 
+    @Inject
+    BinomeMapper binomeMapper;
+
     @POST
     public Response create(BinomeDTO dto) {
         if (dto == null || dto.nom == null || dto.scrutinId == null ||
-            dto.principalId == null || dto.suppleantId == null) {
+                dto.principalId == null || dto.suppleantId == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("Il manque des infos").build();
         }
 
-        Binome binome = binomeService.create(dto);
+        BinomeDTO binome = binomeService.create(dto);
         return Response.status(Response.Status.CREATED).entity(binome).build();
     }
+
     @GET
     public List<Binome> getAll() {
         return Binome.listAll();

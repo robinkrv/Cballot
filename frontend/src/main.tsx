@@ -4,10 +4,12 @@ import App from "./App";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import NavBar from "./components/NavBar";
 
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
+    <NavBar/>
     <App />
   </React.StrictMode>
 );

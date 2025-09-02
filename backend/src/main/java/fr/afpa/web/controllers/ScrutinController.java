@@ -28,7 +28,7 @@ public class ScrutinController {
                     .entity("adminId, sessionId et binomes sont requis").build();
         }
 
-        Scrutin scrutin = scrutinService.create(dto);
+        ScrutinDTO scrutin = scrutinService.create(dto);
         return Response.status(Response.Status.CREATED).entity(scrutin).build();
     }
 

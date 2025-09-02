@@ -14,7 +14,7 @@ public interface VoteMapper {
     @Mapping(target = "binomeId", source = "binome.id")
     VoteDTO toDTO(Vote vote);
 
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "uuid", ignore = true)
     @Mapping(target = "binome", ignore = true)
     @Mapping(target = "autorisation", ignore = true)
     Vote toEntity(VoteDTO dto);
