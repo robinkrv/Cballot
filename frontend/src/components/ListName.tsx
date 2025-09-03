@@ -92,7 +92,7 @@ const ListStagiaires: React.FC = () => {
             .map((s) => (
               <li key={s.id} className="list-group-item d-flex justify-content-between align-items-center">
                 <span>
-                  {s.utilisateur!.name_} {s.utilisateur!.firstname_} - {s.utilisateur!.mail}
+                  {s.utilisateur.name_} {s.utilisateur.firstname_} - {s.utilisateur.mail}
                 </span>
                 <button className="btn btn-sm fs-5 fw-bold" onClick={() => supprimer(s.id)}>X</button>
               </li>

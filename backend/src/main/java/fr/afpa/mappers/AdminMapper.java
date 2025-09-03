@@ -8,7 +8,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "cdi")
+@Mapper(componentModel = "jakarta")
 public interface AdminMapper {
     
     // Conversion Entity vers DTO (avec données de l'utilisateur)

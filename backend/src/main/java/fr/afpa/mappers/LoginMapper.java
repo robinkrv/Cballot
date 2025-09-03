@@ -5,7 +5,7 @@ import fr.afpa.entities.Admin;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "cdi")
+@Mapper(componentModel = "jakarta")
 public interface LoginMapper {
     
     // Conversion Admin vers LoginDTO (pour les tests ou autres usages)

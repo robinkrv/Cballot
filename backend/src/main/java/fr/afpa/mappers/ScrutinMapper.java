@@ -8,7 +8,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "cdi", uses = { BinomeMapper.class })
+@Mapper(componentModel = "jakarta", uses = { BinomeMapper.class })
 public interface ScrutinMapper {
 
     // Conversion Entity vers DTO

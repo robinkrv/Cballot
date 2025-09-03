@@ -16,7 +16,7 @@ const PageVote: React.FC = () => {
 
           <div className="page-center">
             <div className="page-field w-50">
-              <DropDown title="Sélectionner un binôme" />
+              <DropDown title="Sélectionner un binôme" items={[]} />
             </div>
           </div>
 
